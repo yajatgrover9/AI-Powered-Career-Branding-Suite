@@ -1,0 +1,63 @@
+default_language_version:
+  python: python3.12
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+        types_or: [python, pyi]
+
+  - repo: https://github.com/ambv/black
+    rev: "24.10.0"
+    hooks:
+      - id: black
+        language_version: python3.12
+
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.7.0
+    hooks:
+      - id: interrogate
+        args: [-vv, --fail-under=80]
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.5
+    hooks:
+      - id: codespell
+        exclude: package-lock.json|_vendor/.*|.env.spec
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['.secrets.baseline']
+        exclude: .*_test.*|yarn\.lock
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v1.17.1
+    hooks:
+      - id: pyupgrade
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.4.0
+    hooks:
+      - id: python-no-eval
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-json
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: fix-encoding-pragma
+      - id: no-commit-to-branch
+        args: [--branch, master, --branch, dev, --branch, qa]
+      - id: debug-statements
+      - id: pretty-format-json
+        args: [--autofix]
