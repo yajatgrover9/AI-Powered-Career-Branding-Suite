@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Home.py
+
 import streamlit as st
 
 st.set_page_config(page_title="AI-Powered Career & Branding Suite", layout="wide")
