@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import streamlit as st
+import warnings
+from pydantic.warnings import PydanticDeprecatedSince20
+
+warnings.filterwarnings("ignore", category=PydanticDeprecatedSince20)
+warnings.filterwarnings("ignore", category=UserWarning)
 
 st.set_page_config(page_title="AI-Powered Career & Branding Suite", layout="wide")
+
 
 st.title("🚀 AI-Powered Career & Branding Suite")
 st.markdown(

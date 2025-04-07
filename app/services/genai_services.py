@@ -1,17 +1,29 @@
 # -*- coding: utf-8 -*-
 import os
-import google.generativeai as genai
+from langchain_ibm import WatsonxLLM
+from ibm_watsonx_ai.metanames import GenTextParamsMetaNames
 from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GOOGLE_GENAI_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash")
+parameters = {
+    GenTextParamsMetaNames.DECODING_METHOD: "greedy",
+    GenTextParamsMetaNames.MAX_NEW_TOKENS: 500,
+    GenTextParamsMetaNames.MIN_NEW_TOKENS: 1,
+    GenTextParamsMetaNames.TEMPERATURE: 0.1,
+    GenTextParamsMetaNames.TOP_K: 50,
+    GenTextParamsMetaNames.TOP_P: 1,
+}
+llm = WatsonxLLM(
+    model_id="meta-llama/llama-3-3-70b-instruct",
+    project_id=os.getenv("WATSONX_PROJECT_ID"),
+    params=parameters,
+)
 
 
 def genai_response(prompt):
     """
     Function to generate AI response
     """
-    response = model.generate_content(prompt)
-    return response.text
+    response = llm.invoke(prompt)
+    return response
