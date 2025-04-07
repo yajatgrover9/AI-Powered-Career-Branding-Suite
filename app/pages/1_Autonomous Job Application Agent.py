@@ -7,7 +7,7 @@ from crewai_tools import SerperDevTool
 
 load_dotenv()
 
-st.title("🚀 AI Job Hunter with CrewAI + Watsonx")
+st.title("🚀 AI Job Hunter with CrewAI & Watsonx")
 
 user_command = st.text_input(
     "What would you like help with?",
