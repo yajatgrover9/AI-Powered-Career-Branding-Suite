@@ -1,4 +1,4 @@
-# AI-Powered Career and Branding Suite
+# AI-Powered Career and Branding Suite with watsonx
 
 ## Overview
 
