@@ -13,7 +13,7 @@ user_command = st.text_input(
     "What would you like help with?",
     placeholder="e.g. Analyze my resume or find ML jobs in Bangalore",
 )
-resume = st.file_uploader("Upload your resume")  # to be implemented
+resume = ""  # to be implemented
 role = st.text_input("Target Role", value="Data Scientist")
 location = st.text_input("Preferred Job Location", value="")
 experience = st.slider("Years of Experience", 0, 30, 3)

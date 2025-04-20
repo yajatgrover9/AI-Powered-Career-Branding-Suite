@@ -20,6 +20,6 @@ Welcome to your intelligent assistant for professional growth and personal brand
 - 🧾 **AI-Driven Resume & Portfolio Builder** – Generate a customizable, media-rich professional portfolio powered by AI to present yourself as a brand.
 - 🧠 **AI-Powered Interview Intelligence** – Supports recruiters with contextual interview questions, follow-ups, and candidate evaluations based on job descriptions and resumes.
 
-👉 Use the sidebar to navigate through the features.
+👈 Use the sidebar to navigate through the features.
 """
 )
